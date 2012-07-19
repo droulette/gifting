@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   has_many :product_recs
+  has_many :products, :through => :product_recs
   has_many :reminders
 end
