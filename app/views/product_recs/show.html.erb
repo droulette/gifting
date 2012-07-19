@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @product_rec.user %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @product_rec.product %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_rec_path(@product_rec) %> |
+<%= link_to 'Back', product_recs_path %>
