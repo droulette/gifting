@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
 */
+.clear{
+	clear:both;
+}
+
+
+.login{
+	text-align:right;
+}

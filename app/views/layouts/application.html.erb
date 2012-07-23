@@ -2,15 +2,57 @@
 <html>
 <head>
   <title>Gifting</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", "bootstrap-responsive.min.css", "bootstrap.min.css", :media => "all" %>
+  <%= javascript_include_tag "application","bootstrap.min.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete)%>   
+	
+
+<div class='login'>
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+</div>
+
+ <div class='clear'></div>
+
+ 
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+ <div id='nav'>
+ 	
+	 <div class='row'>
+	 	
+	 	
+	 	<div class='span4'>
+	 		<h1>Nav</h1>
+	 		<ul>
+	 			<%= link_to_unless_current 'new user', new_user_registration_path %>
+	 			</br>
+	 			<%= link_to_unless_current 'new products', new_product_path %>
+	 			</br>
+	 			<%= link_to_unless_current 'new productss rec', new_product_rec_path %>
+	 		</ul>	
+	 	</div>
+	 	
+	 	<div class='span8'>
+	 		<%= yield %>
+	 	</div>
+	 	
+	 	
+	 	
+	 </div>
+	 
+ 
+ </div>	
   </br>
   </br>
-<%= yield %>
+
 
 </body>
 </html>
