@@ -9,7 +9,7 @@
 <body>
 	
 
-<div class='login'>
+<div class='login well'>
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
@@ -24,12 +24,14 @@
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
+
  <div id='nav'>
  	
 	 <div class='row'>
 	 	
 	 	
 	 	<div class='span4'>
+	 		  <% if user_signed_in? %>
 	 		<h1>Nav</h1>
 	 		<ul>
 	 			<%= link_to_unless_current 'new user', new_user_registration_path %>
@@ -38,6 +40,7 @@
 	 			</br>
 	 			<%= link_to_unless_current 'new productss rec', new_product_rec_path %>
 	 		</ul>	
+	 		  <% end %>
 	 	</div>
 	 	
 	 	<div class='span8'>
