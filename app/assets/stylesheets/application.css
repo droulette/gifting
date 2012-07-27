@@ -18,4 +18,10 @@
 
 .login{
 	text-align:right;
+	background-color:red;
 }
+
+.topbar{
+	margin:auto;
+}
+

@@ -25,31 +25,23 @@
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 
- <div id='nav'>
- 	
-	 <div class='row'>
-	 	
-	 	
-	 	<div class='span4'>
+ <div id='navig'>
+	 	<div class='span8 topbar'>
 	 		  <% if user_signed_in? %>
-	 		<h1>Nav</h1>
-	 		<ul>
-	 			<%= link_to_unless_current 'new user', new_user_registration_path %>
-	 			</br>
-	 			<%= link_to_unless_current 'new products', new_product_path %>
-	 			</br>
-	 			<%= link_to_unless_current 'new productss rec', new_product_rec_path %>
+	 		<em><h1>Nav</h1></em>
+	 		<ul class='nav nav-tabs'>
+	 			<li><%= link_to 'my products', products_path %></li>
+	 			<li><%= link_to 'my product recs', product_recs_path %></li>
+	 			<li><%= link_to 'new products', new_product_path %></li>
+	 			<li><%= link_to 'new productss rec', new_product_rec_path %></li>
 	 		</ul>	
 	 		  <% end %>
 	 	</div>
-	 	
+	 	<div class='clear'>
+	 		
 	 	<div class='span8'>
 	 		<%= yield %>
 	 	</div>
-	 	
-	 	
-	 	
-	 </div>
 	 
  
  </div>	
