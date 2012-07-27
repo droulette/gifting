@@ -26,20 +26,25 @@
 <% end %>
 
  <div id='navig'>
-	 	<div class='span8 topbar'>
+	 	<div class='span8 offset2'>
 	 		  <% if user_signed_in? %>
 	 		<em><h1>Nav</h1></em>
 	 		<ul class='nav nav-tabs'>
-	 			<li><%= link_to 'my products', products_path %></li>
-	 			<li><%= link_to 'my product recs', product_recs_path %></li>
-	 			<li><%= link_to 'new products', new_product_path %></li>
-	 			<li><%= link_to 'new productss rec', new_product_rec_path %></li>
+	 			<li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href=<%=products_path %>>My Products<b class='caret'></b></a>
+	 				<ul class='dropdown-menu'>
+	 					<li><a href='#'>action</a></li>
+	 					<li><a href='#'>acd</a></li>
+	 				</ul>
+	 			</li>
+	 			<li><%= link_to 'My Product Pecs', product_recs_path %></li>
+	 			<li><%= link_to 'New Products', new_product_path %></li>
+	 			<li><%= link_to 'New Productss Pec', new_product_rec_path %></li>
 	 		</ul>	
 	 		  <% end %>
 	 	</div>
-	 	<div class='clear'>
+
 	 		
-	 	<div class='span8'>
+	 	<div class='span8 offset2'>
 	 		<%= yield %>
 	 	</div>
 	 
