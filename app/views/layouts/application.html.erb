@@ -3,6 +3,7 @@
 <head>
   <title>Gifting</title>
   <%= stylesheet_link_tag    "application", "bootstrap-responsive.css", "bootstrap.css", :media => "all" %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <%= javascript_include_tag "application","bootstrap.min.js" %>
   <%= csrf_meta_tags %>
 </head>
@@ -39,6 +40,7 @@
 	 			<li><%= link_to 'My Product Pecs', product_recs_path %></li>
 	 			<li><%= link_to 'New Products', new_product_path %></li>
 	 			<li><%= link_to 'New Productss Pec', new_product_rec_path %></li>
+	 			<li><%# link_to 'Carousel', {:controller=>'Products', :action=>'carousel'}%></li>
 	 		</ul>	
 	 		  <% end %>
 	 	</div>
