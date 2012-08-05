@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   
-  has_many :product_recs
-  has_many :products, :through => :product_recs
+  has_many :recommendations
+  has_many :products, :through => :recommendations
   has_many :reminders
 end

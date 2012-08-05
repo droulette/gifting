@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120718062515) do
-
-  create_table "product_recs", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "product_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "product_recs", ["product_id"], :name => "index_product_recs_on_product_id"
-  add_index "product_recs", ["user_id"], :name => "index_product_recs_on_user_id"
+ActiveRecord::Schema.define(:version => 20120804220322) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
@@ -34,6 +24,16 @@ ActiveRecord::Schema.define(:version => 20120718062515) do
   end
 
   add_index "products", ["product_rec_id"], :name => "index_products_on_product_rec_id"
+
+  create_table "recommendations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "recommendations", ["product_id"], :name => "index_recommendations_on_product_id"
+  add_index "recommendations", ["user_id"], :name => "index_recommendations_on_user_id"
 
   create_table "reminders", :force => true do |t|
     t.string   "name"

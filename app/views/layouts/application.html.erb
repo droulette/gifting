@@ -9,51 +9,83 @@
 </head>
 <body>
 	
+<div class='container'>
+	<div class='well height'>	
+	
+		<div class='homelogo'>
+			<%= link_to image_tag('rails.png', :alt =>'logo'), products_path%>
+		</div>
+	
+		<div class='header'<>
+			<h1><em>Gifting</em></h1>
+			<p>Never forget again</p>
+		</div>
+	
+		<div class='login textright'>
+		  <% if user_signed_in? %>
+		    Signed in as <%= current_user.email %>. Not you?
+		    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+		  <% else %>
+		    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+		  <% end %>
+		</div>
+	
+	</div>
+	
+	<div><em>
+		<% flash.each do |name, msg| %>
+		  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %></em>
+	</div>	
+	
+			
+		<form class='form-search float'>
+			<input type='text' class='input-medium search-query'>
+			<button type='submit' class='btn'>Search</button>
+		</form>
+	
+	
+	<div class='container'>
+		</br>
+		<div class='span12'>
+			<% if user_signed_in? %>
+			<ul class='nav nav-tabs'>
+				<li class='dropdown active'>
+					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>My Product<b class='caret'></b></a>				
+					<ul class='dropdown-menu'>
+						<li><%= link_to 'All Products', products_path %></li>
+						<li><%= link_to 'New', new_product_path %></li>
+					</ul>
+				</li>
+				<li class='dropdown active'>
+					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>My Recs<b class='caret'></b></a>				
+					<ul class='dropdown-menu'>
+						<li><%= link_to 'My Recommendations', recommendations_path %></li>
+						<li><%= link_to 'All Items', products_path %></li>
+					</ul>
+				</li>
+				<li class='dropdown active'>
+					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>My Reminders<b class='caret'></b></a>				
+					<ul class='dropdown-menu'>
+						<li><%= link_to 'Reminders', reminders_path %></li>
+						<li><%= link_to 'New Reminders', new_reminder_path %></li>
+					</ul>
+				</li>	
 
-<div class='login well'>
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
+			</ul>
+			<% end %>
+		</div>
+		
+		<div class='span12'>
+			<%= yield %>
+		</div>
+	</div>
+	
+	<div class='footer'>
+		<p>copyright ©2012</p>
+	</div>
+	
 </div>
-
- <div class='clear'></div>
-
- 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
-
- <div id='navig'>
-	 	<div class='span8 offset2'>
-	 		  <% if user_signed_in? %>
-	 		<em><h1>Nav</h1></em>
-	 		<ul class='nav nav-tabs'>
-	 			<li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href=<%=products_path %>>My Products<b class='caret'></b></a>
-	 				<ul class='dropdown-menu'>
-	 					<li><a href='#'>action</a></li>
-	 					<li><a href='#'>acd</a></li>
-	 				</ul>
-	 			</li>
-	 			<li><%= link_to 'My Product Pecs', product_recs_path %></li>
-	 			<li><%= link_to 'New Products', new_product_path %></li>
-	 			<li><%= link_to 'New Productss Pec', new_product_rec_path %></li>
-	 			<li><%# link_to 'Carousel', {:controller=>'Products', :action=>'carousel'}%></li>
-	 		</ul>	
-	 		  <% end %>
-	 	</div>
-
-	 		
-	 	<div class='span8 offset2'>
-	 		<%= yield %>
-	 	</div>
-	 
- 
- </div>	
-  </br>
-  </br>
 
 
 </body>

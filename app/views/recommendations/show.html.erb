@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @recommendation.user %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @recommendation.product %>
+</p>
+
+
+<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+<%= link_to 'Back', recommendations_path %>

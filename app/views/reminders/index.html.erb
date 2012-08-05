@@ -1,22 +1,22 @@
-<h1>Listing reminders</h1>
+<h1>Upcoming reminders</h1>
 
-<table>
+<table class='table table-bordered table-striped table-condensed'>
   <tr>
     <th>Name</th>
-    <th>User</th>
     <th>Ondate</th>
     <th>Description</th>
+    <th>Recommendations</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
+
 <% @reminders.each do |reminder| %>
-  <tr>
     <td><%= reminder.name %></td>
-    <td><%= reminder.user %></td>
     <td><%= reminder.ondate %></td>
     <td><%= reminder.description %></td>
+    <td><%= link_to 'Recommendations', recommendations_path %></td>
     <td><%= link_to 'Show', reminder %></td>
     <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
     <td><%= link_to 'Destroy', reminder, confirm: 'Are you sure?', method: :delete %></td>
@@ -25,5 +25,29 @@
 </table>
 
 <br />
+
+<h1>Past reminders</h1>
+
+<table class='table table-bordered table-striped table-condensed'>
+  <tr>
+    <th>Name</th>
+    <th>Ondate</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @past_reminders.each do |reminder| %>
+    <td><%= reminder.name %></td>
+    <td><%= reminder.ondate %></td>
+    <td><%= reminder.description %></td>
+    <td><%= link_to 'Show', reminder %></td>
+    <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
+    <td><%= link_to 'Destroy', reminder, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
 
 <%= link_to 'New Reminder', new_reminder_path %>
