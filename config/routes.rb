@@ -9,7 +9,7 @@ Gifting::Application.routes.draw do
   
   devise_for :users
   
-  root :to => 'products#index'
+  root :to => 'reminders#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

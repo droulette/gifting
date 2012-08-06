@@ -51,6 +51,13 @@
 			<% if user_signed_in? %>
 			<ul class='nav nav-tabs'>
 				<li class='dropdown active'>
+					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>My Reminders<b class='caret'></b></a>				
+					<ul class='dropdown-menu'>
+				 		<li><%= link_to 'Reminders', reminders_path %></li>
+						<li><%= link_to 'New Reminders', new_reminder_path %></li>
+					</ul>
+				</li>	
+				<li class='dropdown active'>
 					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>My Product<b class='caret'></b></a>				
 					<ul class='dropdown-menu'>
 						<li><%= link_to 'All Products', products_path %></li>
@@ -64,14 +71,6 @@
 						<li><%= link_to 'All Items', products_path %></li>
 					</ul>
 				</li>
-				<li class='dropdown active'>
-					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>My Reminders<b class='caret'></b></a>				
-					<ul class='dropdown-menu'>
-						<li><%= link_to 'Reminders', reminders_path %></li>
-						<li><%= link_to 'New Reminders', new_reminder_path %></li>
-					</ul>
-				</li>	
-
 			</ul>
 			<% end %>
 		</div>

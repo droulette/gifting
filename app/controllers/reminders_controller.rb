@@ -2,8 +2,8 @@ class RemindersController < ApplicationController
   # GET /reminders
   # GET /reminders.json
   def index
-    @reminders = Reminder.upcoming.sorted
-    @past_reminders = Reminder.past.sorted
+    @reminders = current_user.reminders.upcoming.sortedasc
+    @past_reminders = current_user.reminders.past.sorteddesc
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reminders }
@@ -41,7 +41,7 @@ class RemindersController < ApplicationController
   # POST /reminders.json
   def create
     
-    @reminder = current_user.reminders.build(params[:reminder])
+    @reminder = current_user.reminders.new(params[:reminder])
     respond_to do |format|
       if @reminder.save
         format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }

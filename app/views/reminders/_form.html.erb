@@ -13,15 +13,30 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.select :name, ['birthday','anniversary','christmas','just because','i\'m sorry','election day','thanksgiving'] %>
   </div>
   <div class="field">
     <%= f.label :ondate %><br />
-    <%= f.datetime_select :ondate %>
+    <%= f.date_select :ondate, :order => [:month, :day, :year] %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :size => '10x10' %>
+  </div>
+  </br>  
+  <h3>Filters</h3>
+  </br>
+  <div class="field">
+    <%= f.label :for_whom %><br />
+    <%= f.select :for_whom, ['dad','mom','brother','sister','friend','colleague','inlaws'] %>
+  </div>
+  <div class="field">
+    <%= f.label :price_range %><br />
+    <%= f.select :price_range, ['up to $25','$25-$50','$50-$100','$100-$250','$250-$1,000','$1,000+'] %>
+  </div>
+  <div class="field">
+    <%= f.label :gift_type %><br />
+    <%= f.select :gift_type, ['cool','gag','romantic','thoughtful'] %>
   </div>
   <div class="actions">
     <%= f.submit %>

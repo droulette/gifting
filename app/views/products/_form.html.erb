@@ -25,7 +25,15 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :size => '10x10'  %>
+  </div>
+  <div class="field">
+    <%= f.label :perfect_for %><br />
+    <%= f.select :perfect_for, ['dad','mom','brother','sister','friend','colleague','inlaws'], {}, :multiple => true %>
+  </div>
+  <div class="field">
+    <%= f.label :gift_type %><br />
+    <%= f.select :gift_type, ['cool','gag','romantic','thoughtful'] %>
   </div>
   <div class="actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

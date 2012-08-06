@@ -14,9 +14,9 @@
 
 <% @reminders.each do |reminder| %>
     <td><%= reminder.name %></td>
-    <td><%= reminder.ondate %></td>
+    <td><%= l reminder.ondate, :formats => :short %></td>
     <td><%= reminder.description %></td>
-    <td><%= link_to 'Recommendations', recommendations_path %></td>
+    <td><%= link_to 'Link', recommendations_path %></td>
     <td><%= link_to 'Show', reminder %></td>
     <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
     <td><%= link_to 'Destroy', reminder, confirm: 'Are you sure?', method: :delete %></td>
@@ -41,7 +41,7 @@
 
 <% @past_reminders.each do |reminder| %>
     <td><%= reminder.name %></td>
-    <td><%= reminder.ondate %></td>
+    <td><%= l reminder.ondate, :formats => :long  %></td>
     <td><%= reminder.description %></td>
     <td><%= link_to 'Show', reminder %></td>
     <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
