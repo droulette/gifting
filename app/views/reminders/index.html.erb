@@ -2,7 +2,9 @@
 
 <table class='table table-bordered table-striped table-condensed'>
   <tr>
+    <th>Email</th>
     <th>Name</th>
+    <th>For Whom</th>
     <th>Ondate</th>
     <th>Description</th>
     <th>Recommendations</th>
@@ -13,7 +15,9 @@
 
 
 <% @reminders.each do |reminder| %>
+    <td><%= reminder.user.email %></td>
     <td><%= reminder.name %></td>
+        <td><%= reminder.for_whom %></td>
     <td><%= l reminder.ondate, :formats => :short %></td>
     <td><%= reminder.description %></td>
     <td><%= link_to 'Link', recommendations_path %></td>

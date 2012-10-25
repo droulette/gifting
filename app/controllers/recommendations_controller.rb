@@ -3,7 +3,7 @@ class RecommendationsController < ApplicationController
   # GET /recommendations.json
   def index
     @recommendations = Recommendation.all
-
+    @rec= Recommendation.recommend
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recommendations }

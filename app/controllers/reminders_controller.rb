@@ -1,4 +1,5 @@
 class RemindersController < ApplicationController
+    before_filter :authenticate_user!
   # GET /reminders
   # GET /reminders.json
   def index
@@ -41,7 +42,7 @@ class RemindersController < ApplicationController
   # POST /reminders.json
   def create
     
-    @reminder = current_user.reminders.new(params[:reminder])
+    @reminder = current_user.reminders.build(params[:reminder])
     respond_to do |format|
       if @reminder.save
         format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }

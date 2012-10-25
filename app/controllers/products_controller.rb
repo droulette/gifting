@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
+    @product = current_user.products.build(params[:product])
 
     respond_to do |format|
       if @product.save
@@ -82,7 +82,5 @@ class ProductsController < ApplicationController
     end
   end
   
-  def carousel
-    
-  end
+
 end
